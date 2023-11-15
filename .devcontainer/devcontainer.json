@@ -1,0 +1,28 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/python
+{
+	"name": "server web",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "api",
+	"workspaceFolder": "/src",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+			  "ms-python.python",
+			  "ms-python.pylint",
+			  "ms-python.vscode-pylance",
+			  "damildrizzy.fastapi-snippets",
+			  "TabNine.tabnine-vscode",
+			  "njpwerner.autodocstring"
+			]
+		  }
+	},
+	
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [8080],
+	
+	"postCreateCommand": "pip3 install --upgrade pip && pip3 --no-cache-dir install -r requirements.txt",
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	"remoteUser": "app"
+}
